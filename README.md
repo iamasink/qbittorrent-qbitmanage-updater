@@ -1,6 +1,6 @@
 # qbittorrent & qbitmanage version matcher
 
-A minimal container that sets an env var so qbittorrent never updates past qbit_manage's supported versions
+A minimal container that sets an env var so qbittorrent never updates past qbit_manage's supported versions.  
 No more errors like this:
 ```
 | Connecting to Qbittorrent...                                                                       
@@ -16,14 +16,13 @@ No more errors like this:
 1. Ensure you have a `.env` file for the `docker-compose.yml` that your qbittorrent container is in (may be empty)
 
 2. Add this container to your docker-compose.yml
-(see [docker-compose.yml](/docker-compose.yml))
-
-And set the `.env` volume for this container  
-(you can leave it as this default if its beside the docker-compose.yml)
+(see [docker-compose.yml](/docker-compose.yml))  
+And set the `.env` volume for this container:  
 ```yml
     volumes:
       - ./.env:/.env:rw
 ```  
+(you can leave it as this default if its beside the docker-compose.yml)
 
 
 3. Modify your qbittorrent container image version like so:
