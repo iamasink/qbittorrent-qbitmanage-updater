@@ -1,16 +1,20 @@
 ---
 services:
   qbittorrent:
-    image: linuxserver/qbittorrent:${QBITTORRENT_VERSION:-5.1.0}
+    image: linuxserver/qbittorrent:${QBITTORRENT_VERSION:-latest}
+    # example
 
   qbit_manage:
-    image: ghcr.io/stuffanthings/qbit_manage:v4.2.2
+    image: ghcr.io/stuffanthings/qbit_manage:latest
+    # example
 
-  version_watcher:
-    build: .
+  qbittorrent-qbitmanage-updater:
+    container_name: qbittorrent-qbitmanage-updater
+    # build: .
+    image: ghcr.io/iamasink/qbittorrent-qbitmanage-updater:main
     environment:
-      - DOTENV_LOCATION=/.env        # .env for docker-compose.yml location
       - QBITMANAGE_BRANCH=master     # optional, defaults to master
     volumes:
-      - ./.env:/.env:rw       # mount .env file. ensure the file exists before starting this container, or it'll create a directory (invalid)
+      - ./.env:/.env:rw              # mount .env file. ensure the file exists before starting this container, or it'll create a directory (invalid)
+      # defaults to beside the docker-compose.yml
     restart: "no"
