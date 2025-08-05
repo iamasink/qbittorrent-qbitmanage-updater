@@ -15,8 +15,7 @@ No more errors like this:
 
 1. Ensure you have a `.env` file for the `docker-compose.yml` that your qbittorrent container is in (may be empty)
 
-2. Add this container to your docker-compose.yml
-(see [docker-compose.yml](/docker-compose.yml))  
+2. Add this container to your docker-compose.yml  (see [docker-compose.yml](/docker-compose.yml))  
 And set the `.env` volume for this container:  
 ```yml
     volumes:
@@ -31,7 +30,7 @@ And set the `.env` volume for this container:
 ```  
 
 
-4. Run the container(s)!
+4. Run the containers!
 ```
 docker compose up
 ```
